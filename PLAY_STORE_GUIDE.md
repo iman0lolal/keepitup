@@ -148,7 +148,7 @@ Before uploading, prepare:
 
 ### 4. Privacy Policy
 - Required if you collect data (you do - Firebase leaderboard)
-- Host it on a public URL
+- Public URL: https://iman0lolal.github.io/keepitup/privacy.html
 
 ### 5. App Details
 - Title: "Keep It Up!"

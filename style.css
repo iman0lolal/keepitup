@@ -356,3 +356,17 @@ canvas {
     opacity: 0.7;
     font-size: 1.1rem;
 }
+/* Privacy policy link in the main menu */
+.privacy-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.8rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.privacy-link:hover,
+.privacy-link:focus-visible {
+    color: #fff;
+}

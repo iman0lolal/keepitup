@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1e1b4b">
+  <title>Política de privacidad | Keep It Up</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f2937; background: #f3f4f6; }
+    body { margin: 0; padding: 2rem 1rem; }
+    main { max-width: 760px; margin: 0 auto; padding: clamp(1.25rem, 5vw, 3rem); background: white; border-radius: 1rem; box-shadow: 0 12px 40px #11182712; }
+    h1, h2 { color: #312e81; line-height: 1.2; }
+    h1 { margin-top: 0; }
+    h2 { margin-top: 2rem; font-size: 1.2rem; }
+    p, li { line-height: 1.65; }
+    a { color: #4338ca; }
+    .updated { color: #4b5563; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Política de privacidad de Keep It Up</h1>
+  <p class="updated"><strong>Última actualización:</strong> 27 de octubre de 2026</p>
+  <p>Esta política explica cómo la aplicación <strong>Keep It Up</strong> (el juego de malabares con una pelota) trata la información cuando juegas en la web o en su aplicación Android. El responsable es el desarrollador independiente Imanol, titular del perfil de GitHub <a href="https://github.com/iman0lolal">iman0lolal</a>. Para consultas o solicitudes relacionadas con tus datos, contacta mediante <a href="https://github.com/iman0lolal/keepitup/issues">el repositorio del juego en GitHub</a>. No incluyas información sensible en una solicitud pública.</p>
+
+  <h2>Información que se guarda en tu dispositivo</h2>
+  <p>El juego guarda en el almacenamiento local del navegador o WebView (localStorage) tu apodo, las monedas, la puntuación récord, las pelotas y temas desbloqueados y la selección actual. Se usa para conservar el progreso entre sesiones. Puedes borrarlo desde los ajustes de almacenamiento del navegador o eliminando los datos de la aplicación.</p>
+
+  <h2>Información que se envía al marcador</h2>
+  <p>Cuando termina una partida, el juego envía a Firebase Realtime Database el apodo elegido (hasta 15 caracteres; si se deja vacío, se usa “Anonymous”), la puntuación y la fecha y hora del resultado. Si el apodo ya existe, conserva la puntuación más alta y actualiza su fecha. El marcador muestra públicamente los apodos y las puntuaciones; no uses un apodo que te identifique personalmente.</p>
+  <p>Al consultar el marcador, el juego solicita los diez resultados más altos. No se crean cuentas y el juego no solicita nombre legal, correo electrónico, teléfono, ubicación precisa, contactos, fotos, micrófono ni datos de pago.</p>
+
+  <h2>Proveedores y destinatarios</h2>
+  <p>Usamos Google Firebase Realtime Database, un servicio de Google LLC, para almacenar y servir el marcador. Google procesa las solicitudes necesarias para prestar ese servicio; la conexión al servicio puede incluir datos técnicos de red, como la dirección IP y datos del navegador o dispositivo, conforme a las prácticas de Google. El juego carga además las bibliotecas de Firebase y la fuente Outfit desde Google Fonts, por lo que el navegador se conecta a servidores de Google al cargar el juego. El marcador, incluidos apodos y puntuaciones, es visible para otros jugadores.</p>
+  <p>El juego no integra anuncios ni herramientas de analítica. No vendemos información personal ni la compartimos con otros destinatarios, salvo los proveedores técnicos descritos arriba o cuando sea necesario para cumplir la ley.</p>
+
+  <h2>Conservación y eliminación</h2>
+  <p>Los datos locales permanecen en el dispositivo hasta que los borres o elimines los datos de la aplicación. Los resultados del marcador no tienen una fecha de caducidad automática configurada; se conservan hasta que el desarrollador los elimine o deje de operar el servicio. Puedes solicitar la eliminación de un resultado contactando mediante el enlace de GitHub indicado arriba e identificando el apodo y la puntuación. No hay cuentas de usuario que deban eliminarse.</p>
+
+  <h2>Seguridad y menores</h2>
+  <p>Las comunicaciones con Firebase se realizan mediante HTTPS. El apodo y la puntuación del marcador son públicos; no introduzcas información personal en el apodo. El juego no solicita datos personales sensibles. Si un padre, madre o tutor cree que un menor ha enviado información personal, puede contactar al desarrollador para pedir su eliminación.</p>
+
+  <h2>Cambios y contacto</h2>
+  <p>Podemos actualizar esta política si cambia el juego o el tratamiento de datos. Publicaremos la versión vigente en esta misma página e indicaremos arriba la fecha de actualización. Para cualquier consulta o solicitud sobre privacidad, usa <a href="https://github.com/iman0lolal/keepitup/issues">el canal de contacto del proyecto</a>.</p>
+</main>
+</body>
+</html>
