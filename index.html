@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Keep It Up!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#38bdf8">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI Overlay -->
+        <div id="ui-layer">
+            <!-- HUD -->
+            <div id="hud" class="hidden">
+                <div class="score-container">
+                    <span id="score">0</span>
+                    <div class="hud-best">BEST: <span id="hud-best">0</span></div>
+                </div>
+            </div>
+
+            <!-- Main Menu -->
+            <div id="main-menu" class="screen">
+                <h1 class="title">KEEP<br>IT<br>UP</h1>
+                <p class="subtitle">Tap to Juggle</p>
+                <div class="menu-best">BEST SCORE: <span id="menu-best">0</span></div>
+
+                <!-- Nickname Input -->
+                <div class="nickname-container">
+                    <input type="text" id="nickname-input" placeholder="Enter your nickname" maxlength="15">
+                </div>
+
+                <button id="start-btn" class="btn primary">PLAY</button>
+                <button id="leaderboard-btn" class="btn secondary">LEADERBOARD</button>
+                <button id="shop-btn" class="btn secondary">SHOP</button>
+                <div class="wallet-display">
+                    <span class="coin-icon">●</span> <span id="menu-coins">0</span>
+                </div>
+            </div>
+
+            <!-- Shop -->
+            <div id="shop" class="screen hidden">
+                <div class="shop-header">
+                    <h2>SHOP</h2>
+                    <div class="wallet-display">
+                        <span class="coin-icon">●</span> <span id="shop-coins">0</span>
+                    </div>
+                </div>
+
+                <div class="shop-tabs">
+                    <button id="tab-balls" class="tab-btn active">Balls</button>
+                    <button id="tab-bgs" class="tab-btn">Themes</button>
+                </div>
+
+                <div id="shop-items" class="shop-grid">
+                    <!-- Items injected by JS -->
+                </div>
+
+                <button id="shop-close-btn" class="btn secondary">CLOSE</button>
+            </div>
+
+            <!-- Leaderboard -->
+            <div id="leaderboard" class="screen hidden">
+                <h2>GLOBAL LEADERBOARD</h2>
+                <div id="leaderboard-list" class="leaderboard-list">
+                    <div class="loading">Loading scores...</div>
+                </div>
+                <button id="leaderboard-close-btn" class="btn secondary">CLOSE</button>
+            </div>
+
+            <!-- Game Over -->
+            <div id="game-over" class="screen hidden">
+                <h2>GAME OVER</h2>
+                <div class="result-box">
+                    <p>Score</p>
+                    <p id="final-score" class="big-text">0</p>
+                </div>
+                <div class="result-box">
+                    <p>Coins Earned</p>
+                    <p id="earned-coins" class="big-text">+0</p>
+                </div>
+                <button id="restart-btn" class="btn primary">PLAY AGAIN</button>
+                <button id="home-btn" class="btn secondary">MENU</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

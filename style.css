@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #38bdf8;
+    --bg-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    --bg-sunset: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+    --bg-forest: linear-gradient(135deg, #0f766e 0%, #065f46 100%);
+    --bg-ocean: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    --bg-midnight: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+    background: var(--bg-gradient);
+    color: white;
+}
+
+body.bg-default {
+    background: var(--bg-gradient);
+}
+
+body.bg-sunset {
+    background: var(--bg-sunset);
+}
+
+body.bg-forest {
+    background: var(--bg-forest);
+}
+
+body.bg-ocean {
+    background: var(--bg-ocean);
+}
+
+body.bg-midnight {
+    background: var(--bg-midnight);
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#ui-layer>* {
+    pointer-events: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* HUD */
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.score-container {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hud-best {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+/* Screens */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 20px rgba(56, 189, 248, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.menu-best {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    font-family: 'Outfit', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn.primary {
+    background: var(--primary-color);
+    color: #1e1b4b;
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.5);
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.wallet-display {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.coin-icon {
+    color: #facc15;
+    font-size: 1.8rem;
+}
+
+/* Game Over */
+.result-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.big-text {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 10px;
+    color: var(--primary-color);
+}
+
+/* Shop */
+#shop {
+    padding: 40px 20px;
+}
+
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.shop-header h2 {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.shop-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    color: #1e1b4b;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+.shop-item {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.shop-item:hover {
+    transform: scale(1.05);
+}
+
+.shop-item.selected {
+    border-color: var(--primary-color);
+    background: rgba(56, 189, 248, 0.2);
+}
+
+.shop-item.locked {
+    opacity: 0.5;
+}
+/* Nickname Input */
+.nickname-container {
+    margin: 20px 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+#nickname-input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#nickname-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#nickname-input:focus {
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Leaderboard */
+.leaderboard-list {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.leaderboard-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    transition: transform 0.2s;
+}
+
+.leaderboard-entry:hover {
+    transform: scale(1.02);
+}
+
+.leaderboard-entry.top-1 {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.1));
+    border: 2px solid #ffd700;
+}
+
+.leaderboard-entry.top-2 {
+    background: linear-gradient(135deg, rgba(192, 192, 192, 0.3), rgba(192, 192, 192, 0.1));
+    border: 2px solid #c0c0c0;
+}
+
+.leaderboard-entry.top-3 {
+    background: linear-gradient(135deg, rgba(205, 127, 50, 0.3), rgba(205, 127, 50, 0.1));
+    border: 2px solid #cd7f32;
+}
+
+.leaderboard-rank {
+    font-size: 1.5rem;
+    font-weight: 900;
+    min-width: 50px;
+    text-align: center;
+}
+
+.leaderboard-name {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leaderboard-score {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    opacity: 0.7;
+    font-size: 1.1rem;
+}
